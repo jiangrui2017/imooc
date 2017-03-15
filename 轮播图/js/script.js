@@ -12,7 +12,7 @@ window.onload = function(){
     function animate(offset) {
         myBoolen = false;
         var newleft = parseInt(list.style.left) +offset;
-        var time = 300;
+        var time = 1200;
         var interval = 10;
         var speed = offset/(time/interval);
         
@@ -53,7 +53,7 @@ window.onload = function(){
                 list.style.left = parseInt(list.style.left) +speed +"px";
             }
                         
-        },interval);
+        },speed);
 
 
         
@@ -82,7 +82,7 @@ window.onload = function(){
         timer2 = null;
         timer2 = setInterval(function(){
            next.onclick();
-        },2000);
+        },4000);
 
     }
     function stop(){
