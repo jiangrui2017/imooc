@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		#left{
+			border:1px solid #000;
+			width: 400px;
+			height: 400px;
+			background: url(400.jpg_400x400.jpg_.webp) no-repeat;
+			float: left;
+			position: relative;
+			cursor: crosshair;
+		}
+		#left_i{
+			width: 220px;
+			height: 200px;
+			background-color: #DDD;
+			opacity: 0.6;
+			filter:alpha(opacity = 60);
+			position: absolute;
+			left:0;
+			top:0;
+			display: none;
+		}
+		#cover{
+			width: 400px;
+			height: 400px;
+			
+			background-color: red;
+			opacity: 0;
+			filter:alpha(opacity=0);
+		}
+		#right{
+			float: left;
+			margin-left: 10px;
+			width: 440px;
+			height: 400px;
+			border:1px solid #000;
+			overflow:hidden;
+			position: relative;
+			display: none;
+		}
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="left">
+			<div id="left_i"></div>
+			<div id="cover"></div>
+		</div>
+		<div id="right">
+			<img src="800.jpg" alt="800">
+		</div>
+	</div>
+
+	<script>
+		var leftDiv = document.getElementById("left"),
+		 	cover = document.getElementById("cover"),
+		 	right = document.getElementById("right"),
+			left_i = document.getElementById("left_i"),
+			rightImg = document.getElementsByTagName("img")[0];
+		cover.onmousemove = function(e){
+			var e = e || window.event;
+			var X = e.offsetX||e.layerX,
+				Y = e.offsetY||e.layerY; 
+			var newX = X - 110 ;
+			var newY = Y - 100 ;	
+			if (newX<0) {
+				left_i.style.left=0;
+			}else if(newX>180){
+				left_i.style.left= 180+"px";
+				rightImg.style.left = -360+"px";
+			}else{
+				left_i.style.left= newX +"px";
+				rightImg.style.left = -2*newX+"px";
+			}
+			if (newY<0) {
+				left_i.style.top=0;
+			}else if(newY>200){
+				left_i.style.top= 200+"px";
+				rightImg.style.top = -400+"px";
+			}else{
+				left_i.style.top= newY +"px";
+				rightImg.style.top = -2*newY+"px";
+			}
+		}
+		
+		cover.onmouseout = function(){
+			left_i.style.display = "none";
+			right.style.display = "none";
+		}
+		cover.onmouseover = function(){
+			left_i.style.display = "block";
+			right.style.display = "block";
+		}
+
+	</script>
+	
+</body>
+</html>
