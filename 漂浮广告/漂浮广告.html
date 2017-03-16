@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>漂浮广告</title>
+	<style>
+	*{margin: 0;
+		padding:0;}
+		img{
+			position: absolute;
+			height: 50px;
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<img id="icon" src="imgs/head02.jpg" alt="icon">
+
+<script>
+	var mIcon = document.getElementById("icon");
+	var maxTop = document.documentElement.clientHeight - mIcon.offsetHeight;
+	var maxLeft = document.documentElement.clientWidth - mIcon.offsetWidth;
+	var timer ;
+	var x = 5, y =5;
+	function go(){
+		var newTop = parseInt(mIcon.offsetTop);
+		var newLeft = parseInt(mIcon.offsetLeft);
+			
+
+
+		mIcon.style.top = newTop +y +"px";
+		mIcon.style.left = newLeft +x +"px";
+
+		if (mIcon.offsetTop>maxTop) {
+			mIcon.style.top=maxTop +"px";
+		}
+		if (mIcon.offsetLeft>maxLeft) {
+					mIcon.style.left=maxLeft+"px";
+				}
+		if (mIcon.offsetTop<0) {
+			mIcon.style.top=0+"px";
+		}
+		if (mIcon.offsetLeft<0) {
+			mIcon.style.left=0+"px";
+				}	
+
+		
+		if (mIcon.offsetTop== maxTop) {
+			y=-5;
+		}
+		if (mIcon.offsetLeft == maxLeft) {
+			x=-5;
+		}
+		if (mIcon.offsetTop == 0) {
+			y =5;
+		}
+		if (mIcon.offsetLeft == 0) {
+			x = 5;
+		}
+
+	}
+
+	timer = setInterval(go,10);
+	window.onresize = function(){
+		maxTop = document.documentElement.clientHeight - mIcon.offsetHeight;
+		maxLeft = document.documentElement.clientWidth - mIcon.offsetWidth;
+	};
+	mIcon.onmouseover = function(){
+		clearInterval(timer);
+		
+	}
+	mIcon.onmouseout = function(){
+		timer = setInterval(go,10);
+	}
+
+</script>
+	
+</body>
+</html>
