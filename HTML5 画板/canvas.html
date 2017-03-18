@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画板</title>
+	<style type="text/css">
+		.warp{
+			margin: 30px auto;
+			
+			width: 1010px;
+		}
+
+		.toolbar{
+			line-height: 50px;
+			text-align: center;
+			width: 100%;
+			height: 50px;
+		}
+		.toolbar span{
+			margin-left: 50px;
+		}
+		#xiangpi {
+			text-decoration: none;
+			display: inline-block;
+			height: 18px;
+			width: 30px;
+			background-color: #DDD; 
+		}
+		
+		#huaban{
+			position: relative;
+				
+			border:3px solid #272822;
+		}
+	</style>
+</head>
+<body>
+	<div class="warp">
+		<div class="toolbar">
+			<span>颜色：<input type="color" id = "mcolor"></span>
+			<span >大小：<input type="range" id ="range" max="50" min="10" value="10"> <b id="daxiao">10</b></span>
+			<span>橡皮： <button id="xiangpi"></button></span>
+			<span><input type="button" id="mbutton" value="清 空"></span>
+		</div>
+		<div class="main">
+			<canvas id="huaban" width="1000" height="500"></canvas>
+		</div>
+
+	</div>
+
+	<script>
+		var huaban = document.getElementById("huaban"),
+		 	range = document.getElementById("range"),
+		 	daxiao = document.getElementById("daxiao"),
+		 	xiangpi = document.getElementById("xiangpi"),
+		   	mbutton = document.getElementById("mbutton"),
+			mcolor = document.getElementById("mcolor");
+			var ct = huaban.getContext("2d");
+				ct.lineWidth = "10";
+				ct.strokeStyle = "#000";
+		huaban.onmousedown = function(e){
+			
+			var e = e || window.event;
+			var mouseD_X = e.offsetX||e.layerX,
+				mouseD_Y = e.offsetY||e.layerY;
+			ct.beginPath();
+			
+			ct.moveTo(mouseD_X,mouseD_Y);
+			huaban.onmousemove = function(e){
+				mouseD_X = e.offsetX||e.layerX;
+				mouseD_Y = e.offsetY||e.layerY;
+				ct.lineTo(mouseD_X,mouseD_Y);
+				ct.stroke();
+			}
+		}
+
+		window.onmouseup = function(){
+			huaban.onmousemove = null;
+		}
+		mcolor.onchange = function(){
+			ct.strokeStyle = this.value;
+		}
+		range.onchange = function(){
+			daxiao.innerHTML = this.value;
+			ct.lineWidth = this.value;
+		}
+		xiangpi.onclick = function(){
+			ct.strokeStyle = "#FFF";
+		}
+		mbutton.onclick = function(){
+			ct.clearRect(0,0,1000,500);
+		}
+		
+	</script>
+	
+</body>
+</html>
