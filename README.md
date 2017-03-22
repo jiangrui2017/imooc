@@ -10,4 +10,4 @@
 
 [QQ登陆面板，鼠标事件、组织事件传播](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/QQ/index.html)
 
-[抽大奖了，键盘事件]（http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/EventTest/index.html）
+[抽大奖了，键盘事件](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/EventTest/index.html)
