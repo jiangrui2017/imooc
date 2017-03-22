@@ -1,4 +1,5 @@
-# imooc
-前端学习项目
+# 练手项目
 
-独立完成的一些小项目 
+## 1.html+css
+
+[静态页面](https://github.com/joy835368394/imooc/tree/master/staticwap/html.index)
