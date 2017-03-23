@@ -12,7 +12,7 @@
 
 [抽大奖了，键盘事件](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/EventTest/index.html)
 
-[漂浮广告](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/%E6%BC%82%E6%B5%AE%E5%B9%BF%E5%91%8A/%E6%BC%82%E6%B5%AE%E5%B9%BF%E5%91%8A.html)
+[贱贱的漂浮广告](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/%E6%BC%82%E6%B5%AE%E5%B9%BF%E5%91%8A/%E6%BC%82%E6%B5%AE%E5%B9%BF%E5%91%8A.html)
 
 [淘宝放大镜效果](http://htmlpreview.github.io/?https://github.com/joy835368394/imooc/blob/master/%E6%B7%98%E5%AE%9D%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/%E6%94%BE%E5%A4%A7%E9%95%9C.html)
 
